@@ -14,6 +14,17 @@ public class desafio3 {
         numeros.add(6);
 
 
+        System.out.println("Lista de números original: " + numeros);
+
+
+        List<Integer> numerosPares = numeros.stream()
+                                            .filter(n -> n % 2 == 0)
+                                            .collect(Collectors.toList());
+
+        System.out.println("Números pares: " + numerosPares);
+    }
+}
+
 
 
     }
