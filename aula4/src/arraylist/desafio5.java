@@ -1,5 +1,6 @@
 package arraylist;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class desafio5 {
@@ -7,58 +8,71 @@ public class desafio5 {
         Scanner input = new Scanner(System.in);
         System.out.printf("digite uma palavra");
         String palavra = input.nextLine();
+        ArrayList<String> palavras = new ArrayList<>();
+        ArrayList<String> par = new ArrayList<>();
+        ArrayList<String> impar = new ArrayList<>();
 
-        if (palavra.length() % 2 == 0) {
-            ArrayList<String> par = new ArrayList<>();
-            par.add(palavra);
-            System.out.printf(palavra);
+        palavras.add("banana");
+        palavras.add("maca");
+        palavras.add("abacate");
+        palavras.add("manga");
 
-        }else {
-            ArrayList<String> impar = new ArrayList<>();
-           impar.add(palavra);
-            System.out.printf(palavra);
-    }
-}import java.util.Arrays;
-import java.util.List;
-import java.util.Comparator;
-import java.util.stream.Collectors;
+        int comprimento1=0;
+        int comprimento2=0;
+        String buffer="";
+        String buffer2="";
+        for (int i = 0; i < palavras.size(); i++) {
+            for (int j = 0; j < palavras.size(); j++) {
+              if (i<j){
+                  comprimento1=palavras.get(i).length();
+                  comprimento2=palavras.get(i).length();
 
-/**
- * Desafio 05: Palavras de Comprimento Par ou Ímpar.
- * Ordena palavras pelo comprimento e separa-as por paridade de comprimento.
- */
-public class Desafio05 {
+                  if(comprimento1>comprimento2){
+                      buffer=palavras.get(i);
+                      buffer2=palavras.get(j);
+                      palavras.set(j,buffer);
+                      palavras.set(i,buffer2);
+                  }
+              }
+            }
+        }
 
-    public static void main(String[] args) {
-        // Lista de palavras para o desafio (simulando a entrada do usuário)
-        List<String> palavrasEntrada = Arrays.asList("Java", "Python", "App", "Aplicação", "C", "Cobol", "Web");
+        for (String objetos : palavras) {
+            int tamanho = objetos.length();
+            int resto = tamanho % 2;
+            if (resto == 0) {
+                par.add(objetos);
+            } else {
+                impar.add(objetos);
+            }
+        }
 
-        System.out.println("\n--- Desafio 05: Paridade e Ordenação de Palavras ---");
-        System.out.println("Palavras inseridas: " + palavrasEntrada);
-        
-        // 1. Ordena as palavras pelo comprimento (do menor para o maior).
-        List<String> palavrasOrdenadas = palavrasEntrada.stream()
-            .sorted(Comparator.comparingInt(String::length))
-            .collect(Collectors.toList());
+        System.out.println(par);
+        System.out.println(impar);
+        System.out.println(comprimento1);
+        System.out.println(comprimento2);
+        System.out.println(buffer);
 
-        // 2. Filtra as palavras por comprimento par
-        List<String> palavrasComprimentoPar = palavrasOrdenadas.stream()
-            .filter(palavra -> palavra.length() % 2 == 0)
-            .collect(Collectors.toList());
-
-        // 3. Filtra as palavras por comprimento ímpar
-        List<String> palavrasComprimentoImpar = palavrasOrdenadas.stream()
-            .filter(palavra -> palavra.length() % 2 != 0)
-            .collect(Collectors.toList());
-
-        System.out.println("Palavras ordenadas por comprimento: " + palavrasOrdenadas);
-        System.out.println("Palavras com comprimento par: " + palavrasComprimentoPar);
-        System.out.println("Palavras com comprimento ímpar: " + palavrasComprimentoImpar);
     }
 }
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

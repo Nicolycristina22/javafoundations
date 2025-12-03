@@ -20,7 +20,9 @@ public class desafio4 {
 
 
 
-
+            for (String nome : frutas) {
+                System.out.println(nome);
+            }
         System.out.println(frutas);
     }
 }
