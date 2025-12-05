@@ -76,17 +76,36 @@ public class DesafioLanche {
 
                     break;
 
-                    case 3:
-                        for (int i = 0; i < menuLanches.size(); i++) {
-                            System.out.println(i + "-" + menuLanches.get(i) + menuprecos.get(i));
-                        }
-                        System.out.println("atualizar pedido, digite o numero do pedido");
-                        int pedidonumero = sc.nextInt();
-                        sc.nextLine();
-                        System.out.println(", digite o novo pedido");
-                        int novoPedido = sc.nextInt();
-                        sc.nextLine();
-                        String novopedido = menuLanches.get(pedidonumero);
+                   
+                        case 3:
+    System.out.println("ATUALIZAR PEDIDO");
+    System.out.println("Informe o número do pedido:");
+    int ped = sc.nextInt();
+    sc.nextLine();
+
+    for (int i = 0; i < menuLanches.size(); i++) {
+        System.out.println(i + " - " + menuLanches.get(i) + " - R$" + menuprecos.get(i));
+    }
+
+    System.out.println("Informe o novo código do lanche:");
+    int novoLanche = sc.nextInt();
+    sc.nextLine();
+
+    System.out.println("Informe a nova quantidade:");
+    double novaQtd = sc.nextDouble();
+    sc.nextLine();
+
+    
+    pedidos.set(ped, menuLanches.get(novoLanche));
+    valor.set(ped, menuprecos.get(novoLanche));
+
+    double novoTotal = menuprecos.get(novoLanche) * novaQtd;
+
+    quantidade.set(ped, novaQtd);
+    total.set(ped, novoTotal);
+
+    System.out.println("Pedido atualizado!");
+    break;
 
 
 
@@ -100,7 +119,7 @@ public class DesafioLanche {
 
                         case 4:
                             System.out.println("cancelar pedido");
-                            pedidos.remove(0);
+                            pedidos.remove(num);
                             total.remove(0);
                             quantidade.remove(0);
                             valor.remove(0);
