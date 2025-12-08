@@ -6,6 +6,8 @@ public class Roupa {
     String tamanho;
     int quantidade;
     double valor;
+    double valortotal;
+
 
     public Roupa(String marca, String tipo, String tamanho, int quantidade, double valor) {
         this.marca = marca;
@@ -14,6 +16,11 @@ public class Roupa {
         this.quantidade = quantidade;
         this.valor = valor;
 
+
+    }
+
+    public double valortotal() {
+        return this.quantidade * this.valor;
     }
 
     public void decrEstoque(int quantidade) {
@@ -23,7 +30,7 @@ public class Roupa {
             this.quantidade -= quantidade;
             System.out.println("estoque diminuido com  sucesso");
             System.out.println("marca " + this.marca + " tipo" + this.tipo + "tamanho" + this.tamanho +
-                    "quantidade" + this.quantidade + " valor " + this.valor);
+                    "quantidade" + this.quantidade + " valor " + this.valor + " total "+ this.valortotal);
         }
     }
     public void incrEstoque(int quantidade) {
@@ -31,17 +38,23 @@ public class Roupa {
             this.quantidade += quantidade;
             System.out.println("estoque aumentado com  sucesso\"");
             System.out.println("marca " + this.marca + " tipo " + this.tipo +  " tamanho " + this.tamanho +
-                    " quantidade " + this.quantidade + " valor " + this.valor);
+                    " quantidade " + this.quantidade + " valor " + this.valor+ " total "+ this.valortotal);
         } else {
             System.out.println("valor invalido");
         }
+
+
     }
+
         public String toString () {
             return " marca " + this.marca + " tipo " + this.tipo + " tamanho " + this.tamanho +
-                    " quantidade " + this.quantidade + " valor " + this.valor;
+                    " quantidade " + this.quantidade + " valor " + this.valor + " total " + this.valortotal ;
 
         }
 
 
-    }
+        }
+
+
+
 
