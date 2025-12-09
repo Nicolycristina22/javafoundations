@@ -40,6 +40,6 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "|" + this.nome + "|" + this.nota + "|" + this.nota2 + "|" + this.calcularMedia()+ "|";
+        return "    | " + this.nome + " |  " + this.nota + " |  " + this.nota2 + " | " + this.calcularMedia()+ "  |";
     }
 }
