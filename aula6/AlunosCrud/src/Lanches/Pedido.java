@@ -33,18 +33,17 @@ public class Pedido {
         this.lanche = lanche;
         this.valor = valor;
         this.quantidade = quantidade;
-
-
     }
+
     public double total(){
         return quantidade * valor;
     }
 
     @Override
     public String toString() {
-        return " Pedido " +
-                "lanche " + lanche  +
-                "  valor " + valor +
-                " quantidade " + quantidade + "total" + total();
+        return " lanche: " + lanche +
+                " | valor: " + valor +
+                " | quantidade: " + quantidade +
+                " | total: " + total();
     }
 }
