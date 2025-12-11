@@ -74,9 +74,11 @@ public class MainPedido {
                     gerenciarLanche.excluirPedido(id);
                     }
                     case 5 ->{
-                        System.out.println(gerenciarLanche.totalPedido(id).toString);
+                        System.out.println(gerenciarLanche.totalPedido( id).toString);
 
-                    }
+                    } default -> {
+
+                }
 
             }
         }
